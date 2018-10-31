@@ -63,7 +63,7 @@ public class Triangle implements IPolygon {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Triangle{lengthA=" + lengthA + ", lengthB=" + lengthB + ", lengthC=" + lengthC + ";");
+        stringBuilder.append("Triangle{lengthA=" + lengthA + ", lengthB=" + lengthB + ", lengthC=" + lengthC + "};");
         return String.valueOf(stringBuilder);
     }
 }

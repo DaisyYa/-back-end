@@ -67,7 +67,7 @@ public class Quadrilateral  implements IPolygon {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Quardrilateral{lengthA=" + lengthA + ", lengthB=" + lengthB + ", lengthC=" + lengthC +
-                ", lengthD=" + lengthD + ";");
+                ", lengthD=" + lengthD + "};");
         return String.valueOf(stringBuilder);
     }
 }
