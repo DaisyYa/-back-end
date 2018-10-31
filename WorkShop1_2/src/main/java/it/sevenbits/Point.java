@@ -1,10 +1,18 @@
 package it.sevenbits;
 
+/**
+ *
+ */
 public class Point {
     private int x;
     private int y;
 
-    public Point(int x, int y) {
+    /**
+     *
+     * @param x giy
+     * @param y gjg
+     */
+    public Point(final int x, final int y) {
         this.x = x;
         this.y = y;
     }
@@ -16,7 +24,7 @@ public class Point {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(final int x) {
         this.x = x;
     }
 
@@ -24,7 +32,7 @@ public class Point {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(final int y) {
         this.y = y;
     }
 }
