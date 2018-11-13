@@ -1,7 +1,9 @@
-package figures;
+package it.sevenbits.figures;
+
+import it.sevenbits.figures.exceptions.TriangleException;
 
 /**
- * class with methods getPerimetr, toString (forTriangle)
+ * class with methods getPerimeter, toString (forTriangle)
  */
 public class Triangle implements IPolygon {
     private int lengthA;
@@ -9,7 +11,7 @@ public class Triangle implements IPolygon {
     private int lengthC;
 
     /**
-     *
+     * create triangle
      * @param lengthA side 1
      * @param lengthB side 2
      * @param lengthC side 3
@@ -53,17 +55,16 @@ public class Triangle implements IPolygon {
     }
 
     /**
-     *
+     * method calc perimeter of triangle
      * @return perimetr of triangle
      */
-    public int getPerimetr() {
-            return lengthA + lengthB + lengthC;
-    }
+    public int getPerimeter() { return lengthA + lengthB + lengthC; }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Triangle{lengthA=" + lengthA + ", lengthB=" + lengthB + ", lengthC=" + lengthC + "};");
+        stringBuilder.append("Triangle{lengthA=").append(lengthA).append(", lengthB=").append(lengthB)
+                .append(", lengthC=").append(lengthC).append("};");
         return String.valueOf(stringBuilder);
     }
 }

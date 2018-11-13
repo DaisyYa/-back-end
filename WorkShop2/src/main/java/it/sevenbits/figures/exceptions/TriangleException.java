@@ -1,4 +1,4 @@
-package figures;
+package it.sevenbits.figures.exceptions;
 
 /**
  * check Triangle

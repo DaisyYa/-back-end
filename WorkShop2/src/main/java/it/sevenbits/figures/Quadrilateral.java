@@ -1,7 +1,7 @@
-package figures;
+package it.sevenbits.figures;
 
 /**
- * class with methods getPerimetr, toString (for Quadrilateral)
+ * class with methods getPerimeter, toString (for Quadrilateral)
  */
 public class Quadrilateral  implements IPolygon {
     private int lengthA;
@@ -56,18 +56,18 @@ public class Quadrilateral  implements IPolygon {
     }
 
     /**
-     *
+     * method calc perimeter of quardrilateral
      * @return Perimetr of quardrilateral
      */
-    public int getPerimetr() {
+    public int getPerimeter() {
         return getLengthA() + getLengthB() + getLengthC() + getLengthD();
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Quardrilateral{lengthA=" + lengthA + ", lengthB=" + lengthB + ", lengthC=" + lengthC +
-                ", lengthD=" + lengthD + "};");
+        stringBuilder.append("Quardrilateral{lengthA=").append(lengthA).append(", lengthB=").append(lengthB)
+                .append(", lengthC=").append(lengthC).append(", lengthD=").append(lengthD).append("};");
         return String.valueOf(stringBuilder);
     }
 }
