@@ -1,6 +1,5 @@
 package it.sevenbits.figures;
 
-import it.sevenbits.figures.exceptions.TriangleException;
 
 /**
  * interface with getPerimeter method

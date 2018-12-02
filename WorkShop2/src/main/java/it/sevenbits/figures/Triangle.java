@@ -12,6 +12,7 @@ public class Triangle implements IPolygon {
 
     /**
      * create triangle
+     *
      * @param lengthA side 1
      * @param lengthB side 2
      * @param lengthC side 3
@@ -56,9 +57,12 @@ public class Triangle implements IPolygon {
 
     /**
      * method calc perimeter of triangle
+     *
      * @return perimetr of triangle
      */
-    public int getPerimeter() { return lengthA + lengthB + lengthC; }
+    public int getPerimeter() {
+        return lengthA + lengthB + lengthC;
+    }
 
     @Override
     public String toString() {
