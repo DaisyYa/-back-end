@@ -15,19 +15,15 @@ public class PolygonFactory {
      * @param lengthB sideB
      * @param lengthC sideC
      * @return Triangle
+     * @throws TriangleException if Triangle does is not exist
      */
-    public Triangle getTriangle(final int lengthA, final int lengthB, final int lengthC) {
-        Triangle triangle = null;
-        try {
-            triangle = new Triangle(lengthA, lengthB, lengthC);
-        } catch (TriangleException e) {
-            System.out.println("Error! Triangle does is not exist!");
-        }
-        return triangle;
+    public Triangle getTriangle(final int lengthA, final int lengthB, final int lengthC) throws TriangleException {
+        return new Triangle(lengthA, lengthB, lengthC);
     }
 
     /**
      * create Quadrilateral
+     *
      * @param lengthA sideA
      * @param lengthB sideB
      * @param lengthC sideC
@@ -39,11 +35,13 @@ public class PolygonFactory {
     }
 
     /**
+     * finds figures and writes them to the list
      *
-     * @param file
+     * @param file file
      * @return ArrayList
+     * @throws TriangleException if Triangle does is not exis
      */
-    public ArrayList getPolygonsFromFile(File file) {
+    public ArrayList getPolygonsFromFile(final File file) throws TriangleException {
         ArrayList<IPolygon> arrayList = new ArrayList<>();
         ArrayList<String> arrayListStr = new ArrayList<>();
         String str;
@@ -51,20 +49,27 @@ public class PolygonFactory {
             while ((str = bufferedReader.readLine()) != null) {
                 arrayListStr.add(str);
             }
-            } catch (IOException e) {
-                System.out.println("Error! File not found");
+        } catch (IOException e) {
+            System.out.println("Error! File not found");
+        }
+        if (arrayListStr.size() != 0) {
+            for (String string : arrayListStr) {
+                String[] strings = string.split(" ");
+                switch (strings.length) {
+                    case 3:
+                        arrayList.add(getTriangle(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]),
+                                Integer.parseInt(strings[2])));
+                        break;
+                    case 4:
+                        arrayList.add(getQuadrilateral(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]),
+                                Integer.parseInt(strings[2]), Integer.parseInt(strings[3])));
+                        break;
+                    default:
+                        System.out.println("Error! side not found");
+                }
             }
-        for (String string : arrayListStr) {
-            String[] strings = string.split(" ");
-            switch (strings.length) {
-                case 3:
-                    arrayList.add(getTriangle(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]), Integer.parseInt(strings[2])));
-                    break;
-                case 4:
-                    arrayList.add(getQuadrilateral(Integer.parseInt(strings[0]), Integer.parseInt(strings[1]), Integer.parseInt(strings[2]), Integer.parseInt(strings[3])));
-                    break;
-                default: // throw exeption
-            }
+        } else {
+            throw new NullPointerException("File is empty");
         }
         return arrayList;
     }
